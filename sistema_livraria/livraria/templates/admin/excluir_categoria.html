@@ -1,0 +1,20 @@
+{% extends 'admin/base_adm.html' %}
+
+{% block title %}
+    Excluir Categoria
+{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block conteudo %}
+  <h2>Excluir Categoria: {{ categoria.titulo }}</h2>
+  <p class="text-danger">Têm certeza que deseja excluir essa categoria?</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Sim</button>
+    <a href="{% url 'listar_categoria' %}" class="btn btn-danger">Cancelar</a>
+  </form>
+{% endblock %}
+
+{% block js %}{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'admin/base_adm.html' %}
+
+{% block title %}
+    Listar Livros
+{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block conteudo %}
+  <h2>Listar Livros</h2>
+
+  <table class="table table-striped table-hover table-light">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Autor(a)</th>
+            <th>Preço</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    {% for livro in livros %}
+    <tbody>
+        <tr>
+            <td>{{ livro.id }}</td>
+            <td>{{ livro.titulo }}</td>
+            <td>{{ livro.autor }}</td>
+            <td>{{ livro.preco }}</td>
+            <td><a href="{% url 'editar_livro' livro.id %}" class="btn btn-warning">Editar</a></td>
+            <td><a href="{% url 'excluir_livro' livro.id %}" class="btn btn-danger">Excluir</a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+{% endblock %}
+
+{% block js %}{% endblock %}
+

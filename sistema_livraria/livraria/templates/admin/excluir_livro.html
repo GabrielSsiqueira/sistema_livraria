@@ -1,0 +1,22 @@
+{% extends 'admin/base_adm.html' %}
+
+{% block title %}
+    Excluir Livro
+{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block conteudo %}
+  <h2>Excluir Livro : {{ livro.titulo }}</h2>
+
+  <p class="text-danger">Têm certeza que deseja excluir esse livro? </p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Sim</button>
+    <a href="{% url 'listar_livros' %}" class="btn btn-danger">Cancelar</a>
+  </form>
+{% endblock %}
+
+{% block js %}{% endblock %}
+

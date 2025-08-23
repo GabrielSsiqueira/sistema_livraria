@@ -1,0 +1,43 @@
+{% extends 'admin/base_adm.html' %}
+
+{% block title %}
+    Listar Categoria
+{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block conteudo %}
+  <h2>Listar Categoria</h2>
+
+  <table class="table table-striped table-hover table-light">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Descrição</th>
+            <th>Imagem</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    {% for categoria in categorias %}
+    <tbody>
+        <tr>
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.titulo }}</td>
+            <td>{{ categoria.descricao }}</td>
+            <td>
+                {% for imagem in categoria.imagens_categorias.all %}
+                   {{ imagem.img_base64 }}
+                {% endfor %}
+            </td>
+            <td><a href="{% url 'editar_categoria' categoria.id %}" class="btn btn-warning">Editar</a></td>
+            <td><a href="{% url 'excluir_categoria' categoria.id %}" class="btn btn-danger">Excluir</a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+{% endblock %}
+
+{% block js %}{% endblock %}
+
