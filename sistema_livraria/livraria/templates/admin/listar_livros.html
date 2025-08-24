@@ -15,6 +15,7 @@
             <th>ID</th>
             <th>Titulo</th>
             <th>Autor(a)</th>
+            <th>Quantidade</th>
             <th>Preço</th>
             <th>Editar</th>
             <th>Excluir</th>
@@ -26,6 +27,7 @@
             <td>{{ livro.id }}</td>
             <td>{{ livro.titulo }}</td>
             <td>{{ livro.autor }}</td>
+            <td>{{ livro.quantidade_estoque }}</td>
             <td>{{ livro.preco }}</td>
             <td><a href="{% url 'editar_livro' livro.id %}" class="btn btn-warning">Editar</a></td>
             <td><a href="{% url 'excluir_livro' livro.id %}" class="btn btn-danger">Excluir</a></td>

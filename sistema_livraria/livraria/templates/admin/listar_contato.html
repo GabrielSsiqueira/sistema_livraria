@@ -1,0 +1,34 @@
+{% extends 'admin/base_adm.html' %}
+
+{% block title %}
+   Listar Contato
+{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block conteudo %}
+ <h2>Listar Contato</h2>
+
+  <table class="table table-striped table-hover table-light">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Mensagem</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    {% for contato in contatos %}
+    <tbody>
+        <tr>
+            <td>{{ contato.id }}</td>
+            <td>{{ contato.nome }}</td>
+            <td>{{ contato.email }}</td>
+            <td>{{ contato.mensagem }}</td>
+            <td><a href="{% url 'excluir_contato' contato.id %}" class="btn btn-danger">Excluir</a></td>
+        </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+{% endblock %}

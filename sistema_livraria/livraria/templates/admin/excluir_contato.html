@@ -1,0 +1,22 @@
+{% extends 'admin/base_adm.html' %}
+
+{% block title %}
+    Excluir Contato
+{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block conteudo %}
+  <h2>Excluir Contato : {{ contato.nome }}</h2>
+
+  <p class="text-danger">Têm certeza que deseja excluir esse Contato? </p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Sim</button>
+    <a href="{% url 'listar_contato' %}" class="btn btn-danger">Cancelar</a>
+  </form>
+{% endblock %}
+
+{% block js %}{% endblock %}
+

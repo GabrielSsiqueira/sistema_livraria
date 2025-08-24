@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Categoria, Livros, imagemLivros, ImagemCategoria
+from .models import Categoria, Livros, imagemLivros, ImagemCategoria, Contato
 # Register your models here.
 
 class ImagemLivroInline(admin.TabularInline):
@@ -9,6 +9,11 @@ class ImagemLivroInline(admin.TabularInline):
 class ImagemCategoriaInline(admin.TabularInline):
     model = ImagemCategoria
     extra = 1
+
+@admin.register(Contato)
+class ContatoAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'email', 'mensagem', 'criado_em')
+    search_fields = ('nome', 'email', 'mensagem')
 
 @admin.register(Livros)
 class LivroAdmin(admin.ModelAdmin):
@@ -23,4 +28,5 @@ class CategoriaAdmin(admin.ModelAdmin):
     search_fields = ('titulo',)
     inlines = [ImagemCategoriaInline]
 
+admin.site.register(ImagemCategoria)
 admin.site.register(imagemLivros)
